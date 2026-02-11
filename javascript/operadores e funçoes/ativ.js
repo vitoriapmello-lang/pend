@@ -9,7 +9,6 @@ function mostrarhoraAtual() {
 mostrarhoraAtual();
 
 console.log("ativ 2");
-// Uma função que receba dois números e mostre: soma e média e que peça os dados para o usuário.
 function calcularSomaEMedia() {
     let numero1 = parseFloat(prompt("Digite o primeiro número:"));
     let numero2 = parseFloat(prompt("Digite o segundo número:"));
@@ -21,7 +20,6 @@ function calcularSomaEMedia() {
 calcularSomaEMedia();
 
 console.log("ativ 3");
-// Uma função que receba um nome e mostre: quantidade de letras e nome em maiúsculo e que peça o nome para o usuário.
 function analisarNome() {
     let nome = prompt("Digite seu nome:");
     console.log("Nome:", nome);
@@ -31,7 +29,6 @@ function analisarNome() {
 analisarNome();
 
 console.log("ativ 4");
-// Uma função que receba uma frase e verifica se contém a palavra "HTML" e que peça a frase para o usuário.
 function verificarHTML() {
     let frase = prompt("Digite uma frase:");
     console.log("Frase:", frase);
