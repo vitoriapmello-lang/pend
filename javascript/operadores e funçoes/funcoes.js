@@ -18,8 +18,8 @@ console.log(somar(5, 3));
 function imc(peso,altura) {
     return peso / (altura * altura);
 }
-let peso = 42; // em kg
-let altura = 1.64; // em metros
+let peso = prompt("Digite seu peso (kg):"); // em kg
+let altura = prompt("Digite sua altura (m):"); // em metros
 console.log("Seu IMC é:", imc(peso, altura));
 
 //atividade 8
