@@ -1,0 +1,130 @@
+body {
+    background-image: url(https://blog.ead.unipar.br/wp-content/uploads/2021/04/inovacao-e-tecnologia.jpg);
+    background-size: cover;
+    background-position: center; 
+    background-attachment: fixed; 
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.container{
+    padding:40px;
+    border-radius:15px;
+    width:550px;
+    margin: auto;
+    margin-top:40px;
+}
+
+.container h1{
+    border-bottom:2px solid rgba(255,255,255,0.3);
+    padding-bottom:5px;
+}
+
+h1{
+    font-size:32px;
+    font-weight:bold;
+    margin-top:30px;
+    margin-bottom:10px;
+    text-shadow:2px 2px 8px rgba(0,0,0,0.8);
+    background:linear-gradient(90deg,#00c6ff,#0072ff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+input{
+    border:none;
+    border-radius:8px;
+    padding:10px;
+    font-size:16px;
+    width:250px;
+    margin-top:5px;
+    margin-bottom:10px;
+    outline:none;
+    transition:0.3s;
+}
+
+input:focus{
+    transform:scale(1.05);
+    box-shadow:0 0 10px rgba(0,123,255,0.8);
+}
+
+button{
+    transition:0.3s;
+    margin:5px;
+}
+
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 10px rgba(255,255,255,0.7);
+}
+
+#botao,
+#botao2,
+#botao3,
+#botao4,
+#click,
+#botaoEnviar{
+    font-weight:bold;
+    letter-spacing:1px;
+    padding:12px 25px;
+    border-radius:8px;
+    transition:all 0.3s ease;
+}
+
+#botao:hover,
+#botao2:hover,
+#botao3:hover,
+#botao4:hover,
+#click:hover,
+#botaoEnviar:hover{
+    transform:translateY(-3px) scale(1.05);
+}
+
+#botao:active,
+#botao2:active,
+#botao3:active,
+#botao4:active,
+#click:active,
+#botaoEnviar:active{
+    transform:scale(0.95);
+}
+
+.casa,
+.casa2,
+.casa3{
+    font-size:16px;
+    width:260px;
+    background:rgba(255,255,255,0.9);
+    color:black;
+    box-shadow:0 0 10px rgba(0,0,0,0.5);
+    transition:all 0.3s ease;
+}
+
+.casa:focus,
+.casa2:focus,
+.casa3:focus{
+    transform:scale(1.05);
+    box-shadow:0 0 15px #00aaff;
+}
+
+#listaDinamica{
+    margin-top:10px;
+    padding:0;
+    list-style:none;
+}
+
+#listaDinamica li{
+    background:rgba(255, 255, 255, 0.6);
+    padding:8px 15px;
+    margin:5px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#listaDinamica li:hover{
+    background:rgba(255,0,0,0.7);
+    transform:scale(1.05);
+}

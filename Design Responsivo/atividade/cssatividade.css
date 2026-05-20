@@ -1,0 +1,75 @@
+header {
+    color: rgb(4, 110, 103);
+}
+    ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #159eab;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li {
+    display: block;
+    color: whitesmoke;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+a {
+    display: block;
+    color: whitesmoke;
+    padding: 14px 20px;
+}
+
+a:hover {
+    background-color: rgb(56, 71, 168);
+    font-size: 30px;
+    color: rgb(223, 223, 151);
+}
+
+.box-float { max-width: 800px; }
+.img-float {
+    float: left; 
+    width: 200px;
+    height: auto;
+    margin: 0 16px 16px 0;
+}
+
+/*tablets*/
+@media (min-width: 768px) and (max-width: 1023px) {
+    h1 {
+        color: rgb(79, 111, 153);
+    }
+    ul {
+        background-color: rgb(79, 111, 153);
+    }
+    .box-float { max-width: 600px; }
+    .img-float {
+        float: left; 
+        width: 150px;
+        height: auto;
+        margin: 0 12px 12px 0;
+    }
+}
+
+/*celulares*/
+@media (max-width: 767px) {
+    h1 {
+        color: rgb(78, 10, 10);
+    }
+    ul {
+        background-color: rgb(78, 10, 10);
+    }
+    .box-float { max-width: 100%; }
+    .img-float {
+        float: none; 
+        width: 100%;
+        height: auto;
+        margin: 0 0 16px 0;
+    }
+}

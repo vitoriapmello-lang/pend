@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Configurações básicas da página e link do CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Título do formulário -->
+    <h2>Cadastro de Usuário</h2>
+
+    <!-- Formulário principal de cadastro -->
+    <form id="cadastroForm">
+
+        <!-- Campo de nome com mensagem de validação -->
+        <div>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            <span id="nomeMensagem" class="validacaoMensagem"></span>   
+        </div>
+
+        <!-- Campo de email com validação -->
+        <div>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <span id="emailMensagem" class="validacaoMensagem"></span>
+        </div>
+
+        <!-- Campo de senha com validação -->
+        <div>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+            <span id="senhaMensagem" class="validacaoMensagem"></span>
+            <i class="bi bi-eye-fill icone" id="botaoSenha"></i>
+        </div>
+
+        <!-- Campo de endereço -->
+        <div>
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" name="endereco" required>
+            <span id="enderecoMensagem" class="validacaoMensagem"></span>
+        </div>
+
+        <!-- Área de telefones (permite adicionar mais) -->
+        <div id="telefonesContainer">
+            <div class="telefoneContainer">
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" required>
+                <span class="telefoneMensagem validacaoMensagem"></span>
+            </div>
+        </div>
+
+        <!-- Botão para adicionar novos telefones -->
+        <button type="button" id="addTelefone">Adicionar Telefone</button>
+
+        <br><br>
+
+        <!-- Botão para enviar o formulário -->
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <!-- Importa o JavaScript com as validações -->
+    <script src="script.js"></script>
+</body>
+</html>

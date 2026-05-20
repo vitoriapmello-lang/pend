@@ -1,0 +1,255 @@
+
+body {
+    background-color: #fee440;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='10 10 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E@keyframes rotate%7B0%25%7Btransform:rotate(0deg)%7D100%25%7Btransform:rotate(360deg)%7D%7D.out-top%7Banimation:rotate 20s linear infinite;transform-origin:13px 25px%7D.in-top%7Banimation:rotate 10s linear infinite;transform-origin:13px 25px%7D.out-bottom%7Banimation:rotate 25s linear infinite;transform-origin:84px 93px%7D.in-bottom%7Banimation:rotate 15s linear infinite;transform-origin:84px 93px%7D%3C/style%3E%3Cpath fill='%239b5de5' class='out-top' d='M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z'/%3E%3Cpath fill='%23f15bb5' class='in-top' d='M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z'/%3E%3Cpath fill='%2300bbf9' class='out-bottom' d='M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z'/%3E%3Cpath fill='%2300f5d4' class='in-bottom' d='M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+svg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1; 
+}
+
+form, h2 {
+    position: relative;
+    z-index: 1;
+}
+
+
+.links {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+a {
+    text-decoration: none;
+    color: black;
+    margin-left: 1em;
+}
+a:hover {
+    text-decoration: underline;
+}
+a img.icon {
+    display: inline-block;
+    height: 1em;
+    margin: 0 0 -0.1em 0.3em;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+body {
+    background-color: #fee440;
+    position: relative;
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='10 10 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E@keyframes rotate%7B0%25%7Btransform:rotate(0deg)%7D100%25%7Btransform:rotate(360deg)%7D%7D.out-top%7Banimation:rotate 20s linear infinite;transform-origin:13px 25px%7D.in-top%7Banimation:rotate 10s linear infinite;transform-origin:13px 25px%7D.out-bottom%7Banimation:rotate 25s linear infinite;transform-origin:84px 93px%7D.in-bottom%7Banimation:rotate 15s linear infinite;transform-origin:84px 93px%7D%3C/style%3E%3Cpath fill='%239b5de5' class='out-top' d='M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z'/%3E%3Cpath fill='%23f15bb5' class='in-top' d='M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z'/%3E%3Cpath fill='%2300bbf9' class='out-bottom' d='M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z'/%3E%3Cpath fill='%2300f5d4' class='in-bottom' d='M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+svg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1; 
+}
+form, h2 {
+    position: relative;
+    z-index: 1;
+}
+.links {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+a {
+    text-decoration: none;
+    color: black;
+    margin-left: 1em;
+}
+a:hover {
+    text-decoration: underline;
+}
+a img.icon {
+    display: inline-block;
+    height: 1em;
+    margin: 0 0 -0.1em 0.3em;
+}
+
+h2 {
+    color: #1a1a2e;
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+form {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 20px;
+    padding: 2rem 1.8rem;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 8px 32px rgba(100, 60, 200, 0.18);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #3a2d6e;
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input.telefone {
+    width: 90%;
+    padding: 0.7rem 1rem;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(180, 160, 255, 0.45);
+    border-radius: 10px;
+    color: #1a1a2e;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input.telefone:focus {
+    border-color: #7c5cfc;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 3px rgba(124, 92, 252, 0.2);
+}
+
+.validacaoMensagem {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 0.2rem;
+    min-height: 1rem;
+}
+
+#telefonesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 0.78rem;
+    background: linear-gradient(90deg, #7c5cfc 0%, #5b8dee 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(100, 80, 220, 0.4);
+    transition: filter 0.2s, transform 0.15s;
+    margin-top: 0.3rem;
+}
+
+button[type="submit"]:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+#addTelefone {
+    width: 100%;
+    padding: 0.65rem;
+    background: rgba(255, 255, 255, 0.4);
+    color: #3a2d6e;
+    border: 1px solid rgba(180, 160, 255, 0.5);
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+#addTelefone:hover {
+    background: rgba(255, 255, 255, 0.65);
+    transform: translateY(-1px);
+}
+
+.removeTelefone {
+    background: rgba(239, 68, 68, 0.15);
+    color: #c0392b;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 8px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.35rem 0.8rem;
+    cursor: pointer;
+    margin-top: 0.3rem;
+    transition: background 0.2s;
+}
+
+.removeTelefone:hover {
+    background: rgba(239, 68, 68, 0.28);
+}
+
+div {
+    position: relative;
+}
+
+.icone {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #3a2d6e;
+}
+
