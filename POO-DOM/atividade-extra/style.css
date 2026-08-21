@@ -1,0 +1,269 @@
+/* ============================================================
+   TEMA: SOMBRA // HACK PROTOCOL
+   Cadastro de Produtos — estética hacker/translocação
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap');
+
+:root {
+  --bg-void: #0a0715;
+  --bg-panel: #150c26;
+  --bg-panel-2: #1e1236;
+  --sombra-magenta: #ff2ee0;
+  --sombra-purple: #8a2be2;
+  --sombra-purple-deep: #5b1a9e;
+  --glitch-cyan: #00f0ff;
+  --text-main: #e6def5;
+  --text-dim: #8b7ca8;
+  --danger: #ff3860;
+  --line: rgba(255, 46, 224, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 48px 20px 80px;
+  /* Troque a url() abaixo pelo caminho da sua imagem (ex: "img/fundo.jpg").
+     Se não quiser imagem nenhuma, apague só a linha do url(...) e a vírgula dela. */
+  background:
+    radial-gradient(circle at 15% 10%, rgba(138, 43, 226, 0.35), transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(255, 46, 224, 0.25), transparent 50%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.015) 0px, transparent 1px, transparent 3px),
+    linear-gradient(180deg, rgba(10, 7, 21, 0.88), rgba(10, 7, 21, 0.93)),
+    url("https://i.pinimg.com/1200x/c8/3e/e3/c83ee33445226720845f3cf0bcfc6866.jpg") center center / cover no-repeat fixed,
+    var(--bg-void);
+  color: var(--text-main);
+  font-family: 'Share Tech Mono', monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* linhas de "circuito" no fundo, decorativas */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.15;
+  mask-image: radial-gradient(circle at 50% 30%, black 0%, transparent 70%);
+}
+
+/* ---------- TÍTULO / EFEITO GLITCH ---------- */
+#titulo {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: clamp(28px, 5vw, 44px);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--text-main);
+  position: relative;
+  margin: 0 0 26px;
+  text-align: center;
+  text-shadow:
+    0 0 12px rgba(255, 46, 224, 0.6),
+    0 0 28px rgba(138, 43, 226, 0.4);
+}
+
+#titulo::before,
+#titulo::after {
+  content: "Cadastro de Produtos";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+#titulo::before {
+  color: var(--glitch-cyan);
+  clip-path: inset(0 0 60% 0);
+  animation: glitch-top 4.5s infinite linear alternate-reverse;
+}
+
+#titulo::after {
+  color: var(--sombra-magenta);
+  clip-path: inset(60% 0 0 0);
+  animation: glitch-bottom 3.8s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-top {
+  0%, 92%, 100% { transform: translate(0, 0); opacity: 0; }
+  93% { transform: translate(-3px, -1px); opacity: 0.8; }
+  95% { transform: translate(2px, 1px); opacity: 0.8; }
+  97% { transform: translate(-1px, 0); opacity: 0.5; }
+}
+
+@keyframes glitch-bottom {
+  0%, 90%, 100% { transform: translate(0, 0); opacity: 0; }
+  91% { transform: translate(3px, 1px); opacity: 0.8; }
+  94% { transform: translate(-2px, -1px); opacity: 0.7; }
+  96% { transform: translate(1px, 0); opacity: 0.5; }
+}
+
+/* ---------- FORMULÁRIO ---------- */
+input {
+  width: min(320px, 90vw);
+  margin: 8px 0;
+  padding: 14px 16px;
+  background: var(--bg-panel);
+  border: 1px solid var(--sombra-purple-deep);
+  border-radius: 2px;
+  color: var(--text-main);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+input::placeholder {
+  color: var(--text-dim);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--sombra-magenta);
+  background: var(--bg-panel-2);
+  box-shadow: 0 0 0 1px var(--sombra-magenta), 0 0 18px rgba(255, 46, 224, 0.35);
+}
+
+/* ---------- BOTÃO CADASTRAR ---------- */
+#botaoCadastrar {
+  margin-top: 18px;
+  width: min(320px, 90vw);
+  padding: 15px 16px;
+  background: linear-gradient(120deg, var(--sombra-purple-deep), var(--sombra-magenta));
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+#botaoCadastrar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+#botaoCadastrar:hover {
+  box-shadow: 0 0 20px rgba(255, 46, 224, 0.6), 0 0 40px rgba(138, 43, 226, 0.4);
+  transform: translateY(-2px);
+}
+
+#botaoCadastrar:hover::after {
+  left: 130%;
+}
+
+#botaoCadastrar:active {
+  transform: translateY(0);
+}
+
+/* ---------- LISTA DE PRODUTOS ---------- */
+#resultado {
+  margin-top: 40px;
+  width: min(640px, 92vw);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.produto {
+  background: linear-gradient(135deg, var(--bg-panel) 0%, var(--bg-panel-2) 100%);
+  border: 1px solid var(--sombra-purple-deep);
+  border-left: 3px solid var(--sombra-magenta);
+  border-radius: 3px;
+  padding: 16px 20px;
+  position: relative;
+  animation: translocar-in 0.35s ease-out;
+}
+
+@keyframes translocar-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-14px) scale(0.98);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.produto p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.produto p:first-child {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: var(--glitch-cyan);
+  text-transform: uppercase;
+}
+
+.produto button {
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: transparent;
+  border: 1px solid var(--danger);
+  border-radius: 2px;
+  color: var(--danger);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.produto button:hover {
+  background: var(--danger);
+  color: #0a0715;
+  box-shadow: 0 0 14px rgba(255, 56, 96, 0.5);
+}
+
+/* ---------- ACESSIBILIDADE ---------- */
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--glitch-cyan);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #titulo::before,
+  #titulo::after,
+  .produto {
+    animation: none;
+  }
+}
