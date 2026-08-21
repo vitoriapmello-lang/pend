@@ -25,7 +25,6 @@ class Produto {
 }
 
 
-// Array que vai armazenar vários produtos
 const produtos = [];
 
 
@@ -39,7 +38,6 @@ const resultado = document.querySelector("#resultado");
 
 botaoCadastrar.addEventListener("click", function () {
 
-    // Cria um novo produto
     const produto = new Produto(
         nome.value,
         Number(preco.value),
@@ -47,21 +45,16 @@ botaoCadastrar.addEventListener("click", function () {
         Number(desconto.value)
     );
 
-    // Aplica o desconto
     produto.aplicarDesconto();
 
-    // Adiciona o produto ao array
     produtos.push(produto);
 
-    // Limpa o resultado
     resultado.innerHTML = "";
 
-    // Exibe todos os produtos cadastrados
     produtos.forEach(function(produto) {
         resultado.innerHTML += produto.exibir();
     });
 
-    // Limpa os campos
     nome.value = "";
     preco.value = "";
     categoria.value = "";

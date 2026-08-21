@@ -44,7 +44,23 @@ botaoCadastrar.addEventListener("click", function () {
     );
 
     produto.aplicarDesconto();
+    localStorage.setItem("produto", JSON.stringify(produto));
+    produto.exibir();
+});
+
+const dados = localStorage.getItem("produto");
+
+if (dados) {
+
+    const produtoRecuperado = JSON.parse(dados);
+
+    const produto = new Produto(
+        produtoRecuperado.nome,
+        produtoRecuperado.preco,
+        produtoRecuperado.categoria,
+        produtoRecuperado.desconto
+    );
 
     produto.exibir();
 
-});
+}  
