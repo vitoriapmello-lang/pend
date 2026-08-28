@@ -1,8 +1,3 @@
-/* =========================================================
-   ACCESS://SOMBRA — Team Builder
-   Paleta: roxo-violeta profundo + magenta neon + ciano frio
-   ========================================================= */
-
 :root{
   --void-950: #0a0616;
   --void-900: #120b26;
@@ -37,7 +32,6 @@ html, body{
 body{
   position: relative;
   overflow-x: hidden;
-  /* fundo padrão: grade hexagonal + gradiente violeta, substituível pelo usuário */
   background-image:
     radial-gradient(ellipse at 15% 0%, rgba(217,38,201,0.22), transparent 55%),
     radial-gradient(ellipse at 85% 15%, rgba(63,240,224,0.10), transparent 45%),
@@ -48,7 +42,6 @@ body{
   transition: background-image 0.4s ease;
 }
 
-/* camada de textura hex quando não há imagem custom */
 body::before{
   content: "";
   position: fixed;
@@ -65,7 +58,6 @@ body::before{
   background-position: 0 0, 0 0, 30px 52px, 30px 52px;
 }
 
-/* scanlines sutis, estilo interface hackeada */
 .scanlines{
   position: fixed; inset: 0; z-index: 5; pointer-events: none;
   background: repeating-linear-gradient(
@@ -83,7 +75,6 @@ body::before{
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
 
-/* ---------------- HEADER ---------------- */
 .app-header{
   position: relative; z-index: 2;
   display: flex;
@@ -201,7 +192,6 @@ h1.glitch{
   box-shadow: 0 0 12px rgba(63,240,224,0.25);
 }
 
-/* ---------------- LAYOUT ---------------- */
 .layout{
   position: relative; z-index: 2;
   display: grid;
@@ -243,7 +233,6 @@ h1.glitch{
   box-shadow: 0 0 10px rgba(255,95,240,0.7);
 }
 
-/* ---------------- BANCO DE AGENTES ---------------- */
 .heroes-pool{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
@@ -320,7 +309,6 @@ h1.glitch{
 .role-dot.dano{ background: var(--magenta-glow); color: var(--magenta-glow); }
 .role-dot.suporte{ background: var(--success); color: var(--success); }
 
-/* ---------------- COMPOSIÇÃO DO TIME ---------------- */
 .roles-grid{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -423,7 +411,6 @@ h1.glitch{
   cursor: grab;
 }
 
-/* botão principal */
 .primary-btn{
   display: block;
   width: 100%;
@@ -471,7 +458,6 @@ h1.glitch{
   color: var(--ink-100);
 }
 
-/* ---------------- FOOTER ---------------- */
 .app-footer{
   position: relative; z-index: 2;
   padding: 18px clamp(20px, 5vw, 64px) 40px;
@@ -486,7 +472,6 @@ h1.glitch{
   border-radius: 3px;
 }
 
-/* ---------------- TOASTS ---------------- */
 .toast-layer{
   position: fixed;
   top: 20px;

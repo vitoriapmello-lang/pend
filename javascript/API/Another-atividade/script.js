@@ -1,12 +1,3 @@
-/* =========================================================
-   ACCESS://SOMBRA — Team Builder — script.js
-   Drag and Drop nativo (HTML5 Drag & Drop API)
-   ========================================================= */
-
-// ---- 1) DADOS DOS AGENTES -------------------------------------------------
-// Troque "img" pelo caminho da imagem real do herói.
-// Ex: "assets/tank/reinhardt.png". Se a imagem não existir,
-// um avatar de fallback com a inicial do nome é gerado automaticamente.
 const HEROES = [
   { id: "domina", name: "Domina", role: "tank", img: "fotos/domina.jpg" },
   { id: "rainhajunker",   name: "RainhaJunker",   role: "tank",     img: "fotos/rainhajunker.jpg" },
