@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monte seu PC — Protocolo Sombra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="topbar__brand">
+      <span class="topbar__glyph">◉</span>
+      <h1 class="glitch" data-text="MONTE SEU PC">MONTE SEU PC</h1>
+    </div>
+    <p class="topbar__sub">&gt; protocolo_sombra.exe — arraste os componentes até os encaixes corretos</p>
+  </header>
+
+  <main class="layout">
+
+    <section class="panel inventory" aria-label="Inventário de peças">
+      <h2 class="panel-title">📦 Inventário</h2>
+      <div class="cards" id="cards">
+        <div class="card" draggable="true" id="parte-cpu" data-part="cpu">
+          <span class="card__icon">🧠</span>
+          <span class="card__name">Processador</span>
+          <span class="card__spec">CPU · 8-core</span>
+        </div>
+        <div class="card" draggable="true" id="parte-ram" data-part="ram">
+          <span class="card__icon">🧩</span>
+          <span class="card__name">Memória RAM</span>
+          <span class="card__spec">32GB · DDR5</span>
+        </div>
+        <div class="card" draggable="true" id="parte-gpu" data-part="gpu">
+          <span class="card__icon">🎮</span>
+          <span class="card__name">Placa de Vídeo</span>
+          <span class="card__spec">GPU · RTX</span>
+        </div>
+        <div class="card" draggable="true" id="parte-cooler" data-part="cooler">
+          <span class="card__icon">❄️</span>
+          <span class="card__name">Cooler</span>
+          <span class="card__spec">Water Cooler</span>
+        </div>
+        <div class="card" draggable="true" id="parte-storage" data-part="storage">
+          <span class="card__icon">💾</span>
+          <span class="card__name">Armazenamento</span>
+          <span class="card__spec">SSD · 2TB</span>
+        </div>
+        <div class="card" draggable="true" id="parte-psu" data-part="psu">
+          <span class="card__icon">⚡</span>
+          <span class="card__name">Fonte</span>
+          <span class="card__spec">PSU · 850W</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel rig" aria-label="Gabinete do PC">
+      <h2 class="panel-title">🖥️ Gabinete</h2>
+      <div class="case" id="case">
+        <div class="slot" data-slot="cooler" id="slot-cooler"><span class="slot__label">COOLER</span></div>
+        <div class="slot" data-slot="cpu" id="slot-cpu"><span class="slot__label">CPU</span></div>
+        <div class="slot" data-slot="ram" id="slot-ram"><span class="slot__label">RAM</span></div>
+        <div class="slot slot--wide" data-slot="gpu" id="slot-gpu"><span class="slot__label">GPU</span></div>
+        <div class="slot" data-slot="storage" id="slot-storage"><span class="slot__label">SSD</span></div>
+        <div class="slot" data-slot="psu" id="slot-psu"><span class="slot__label">PSU</span></div>
+      </div>
+    </section>
+
+    <section class="panel terminal" aria-label="Terminal de status">
+      <h2 class="panel-title">📡 Status do sistema</h2>
+      <div class="progress">
+        <div class="progress__fill" id="progress-fill"></div>
+        <span class="progress__label" id="progress-label">0%</span>
+      </div>
+      <div class="terminal__log" id="log" aria-live="polite"></div>
+      <button class="reset-btn" id="reset-btn" type="button">↺ reiniciar_build</button>
+    </section>
+
+  </main>
+
+  <div class="overlay" id="success-overlay">
+    <div class="overlay__inner">
+      <p class="overlay__eyebrow">// acesso concedido</p>
+      <h2 class="glitch" data-text="SISTEMA ONLINE">SISTEMA ONLINE</h2>
+      <p class="overlay__desc">build completo. bem-vinda de volta, agente.</p>
+      <button class="reset-btn" id="overlay-reset" type="button">↺ montar outro pc</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

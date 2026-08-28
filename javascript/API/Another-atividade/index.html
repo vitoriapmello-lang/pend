@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Montagem de Time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+
+<header class="app-header">
+  <div class="header-left">
+    <p class="eyebrow">TALON protocolo</p>
+    <h1 class="glitch" data-text="MONTAGEM DE TIME">MONTAGEM DE TIME</h1>
+    <p class="subtitle">Arraste os agentes até a função correta. 1 Tanque · 2 Dano · 2 Suporte. Errar a função dispara alarme.</p>
+  </div>
+
+  <div class="header-right">
+    <button id="resetBtn" class="ghost-btn">↺ Reiniciar</button>
+  </div>
+</header>
+
+<main class="layout">
+
+  <section class="pool-panel panel">
+    <h2 class="panel-title"><span class="tag">01</span> Banco de Agentes</h2>
+    <div id="heroesPool" class="heroes-pool"></div>
+  </section>
+
+  <section class="team-panel panel">
+    <h2 class="panel-title"><span class="tag">02</span> Composição do Time</h2>
+
+    <div class="roles-grid">
+
+      <div class="role-column" data-role="tank">
+        <div class="role-heading">
+          <span class="role-icon">🛡</span>
+          <span class="role-name">Tanque</span>
+          <span class="role-count" data-role-count="tank">0/1</span>
+        </div>
+        <div class="slots" data-role-slots="tank">
+          <div class="slot" data-role="tank"></div>
+        </div>
+      </div>
+
+      <div class="role-column" data-role="dano">
+        <div class="role-heading">
+          <span class="role-icon">⚔</span>
+          <span class="role-name">Dano</span>
+          <span class="role-count" data-role-count="dano">0/2</span>
+        </div>
+        <div class="slots" data-role-slots="dano">
+          <div class="slot" data-role="dano"></div>
+          <div class="slot" data-role="dano"></div>
+        </div>
+      </div>
+
+      <div class="role-column" data-role="suporte">
+        <div class="role-heading">
+          <span class="role-icon">✚</span>
+          <span class="role-name">Suporte</span>
+          <span class="role-count" data-role-count="suporte">0/2</span>
+        </div>
+        <div class="slots" data-role-slots="suporte">
+          <div class="slot" data-role="suporte"></div>
+          <div class="slot" data-role="suporte"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <button id="validateBtn" class="primary-btn">
+      <span>VALIDAR TIME</span>
+    </button>
+
+    <div id="feedbackPanel" class="feedback-panel" role="status" aria-live="polite">
+      <p id="feedbackText">Aguardando montagem do time...</p>
+    </div>
+  </section>
+
+</main>
+
+<div id="toastLayer" class="toast-layer" aria-hidden="true"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

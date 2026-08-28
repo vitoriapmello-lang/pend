@@ -1,0 +1,447 @@
+/* ============================================
+   MONTE SEU PC — PROTOCOLO SOMBRA
+   Paleta: roxo profundo + ciano de terminal + magenta de glitch
+   ============================================ */
+
+:root {
+  --bg-void: #0a0414;
+  --bg-panel: #150a26;
+  --bg-panel-2: #1c0e33;
+  --purple: #7b2ff7;
+  --purple-soft: #9b5cf6;
+  --purple-line: rgba(123, 47, 247, 0.35);
+  --magenta: #e13bff;
+  --cyan: #33f6e8;
+  --text-main: #ece2ff;
+  --text-dim: #9a86c4;
+  --error: #ff3b5c;
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-sans: 'Rajdhani', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 20% -10%, rgba(123, 47, 247, 0.25), transparent 55%),
+    radial-gradient(ellipse at 100% 10%, rgba(51, 246, 232, 0.12), transparent 45%),
+    repeating-linear-gradient(90deg, rgba(123, 47, 247, 0.05) 0 1px, transparent 1px 48px),
+    repeating-linear-gradient(0deg, rgba(123, 47, 247, 0.05) 0 1px, transparent 1px 48px),
+    var(--bg-void);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  padding: 32px 24px 64px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* linhas de scanline sutis sobre toda a tela */
+.scanlines {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.025) 0px,
+    rgba(255, 255, 255, 0.025) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: overlay;
+}
+
+/* ============ CABEÇALHO / GLITCH ============ */
+
+.topbar {
+  max-width: 1120px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.topbar__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.topbar__glyph {
+  color: var(--cyan);
+  font-size: 1.4rem;
+  text-shadow: 0 0 12px var(--cyan);
+  animation: pulse-glyph 2.4s ease-in-out infinite;
+}
+
+.glitch {
+  position: relative;
+  font-family: var(--font-mono);
+  letter-spacing: 0.12em;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  margin: 0;
+  color: var(--text-main);
+  text-shadow: 0 0 14px rgba(123, 47, 247, 0.7);
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  color: var(--cyan);
+  clip-path: inset(0 0 58% 0);
+  transform: translate(-2px, 0);
+  animation: glitch-shift 3.4s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  color: var(--magenta);
+  clip-path: inset(58% 0 0 0);
+  transform: translate(2px, 0);
+  animation: glitch-shift 2.6s infinite linear alternate-reverse;
+}
+
+.topbar__sub {
+  font-family: var(--font-mono);
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* ============ LAYOUT GERAL ============ */
+
+.layout {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.panel {
+  background: linear-gradient(160deg, var(--bg-panel), var(--bg-panel-2));
+  border: 1px solid var(--purple-line);
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 18px 40px -22px rgba(123, 47, 247, 0.5);
+}
+
+.panel-title {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--purple-soft);
+  margin: 0 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--purple-line);
+}
+
+/* ============ CARDS DE PEÇAS ============ */
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  background: rgba(123, 47, 247, 0.08);
+  border: 1px solid var(--purple-line);
+  border-radius: 8px;
+  cursor: grab;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 0 16px -4px var(--cyan);
+  transform: translateY(-2px);
+}
+
+.card__icon {
+  grid-row: 1 / 3;
+  font-size: 1.6rem;
+}
+
+.card__name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.card__spec {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+.card--arrastando {
+  opacity: 0.35;
+}
+
+.card--instalado {
+  opacity: 0.25;
+  cursor: default;
+  filter: grayscale(0.6);
+}
+
+.card--instalado:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--purple-line);
+}
+
+/* ============ GABINETE / SLOTS ============ */
+
+.case {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, 92px);
+  gap: 12px;
+  padding: 14px;
+  border-radius: 10px;
+  background:
+    repeating-linear-gradient(135deg, rgba(51, 246, 232, 0.04) 0 2px, transparent 2px 14px),
+    rgba(10, 4, 20, 0.5);
+  border: 1px solid var(--purple-line);
+  transition: box-shadow 0.4s ease;
+}
+
+.case--online {
+  box-shadow: 0 0 0 1px var(--cyan), 0 0 40px 4px rgba(51, 246, 232, 0.35) inset;
+}
+
+.slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  border: 1.5px dashed var(--purple-line);
+  border-radius: 8px;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+
+.slot--wide {
+  grid-column: 1 / 3;
+}
+
+.slot--hover {
+  border-color: var(--cyan);
+  border-style: solid;
+  background: rgba(51, 246, 232, 0.08);
+}
+
+.slot--preenchido {
+  border-style: solid;
+  border-color: var(--purple-soft);
+  background: rgba(123, 47, 247, 0.16);
+  color: var(--text-main);
+}
+
+.slot__icon {
+  font-size: 1.5rem;
+}
+
+.slot--sucesso {
+  animation: flash-success 0.6s ease;
+}
+
+.slot--erro {
+  animation: shake-error 0.4s ease;
+  border-color: var(--error);
+  background: rgba(255, 59, 92, 0.12);
+}
+
+/* ============ TERMINAL DE STATUS ============ */
+
+.progress {
+  position: relative;
+  height: 22px;
+  border-radius: 999px;
+  background: rgba(123, 47, 247, 0.12);
+  border: 1px solid var(--purple-line);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.progress__fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--purple), var(--cyan));
+  transition: width 0.5s ease;
+}
+
+.progress__label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.terminal__log {
+  height: 210px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--purple-line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.terminal__log::-webkit-scrollbar {
+  width: 6px;
+}
+
+.terminal__log::-webkit-scrollbar-thumb {
+  background: var(--purple-line);
+  border-radius: 999px;
+}
+
+.terminal__line--ok {
+  color: var(--cyan);
+}
+
+.terminal__line--erro {
+  color: var(--error);
+}
+
+.reset-btn {
+  width: 100%;
+  padding: 10px 14px;
+  background: transparent;
+  border: 1px solid var(--purple-soft);
+  color: var(--text-main);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.reset-btn:hover {
+  background: var(--purple-soft);
+  color: var(--bg-void);
+  box-shadow: 0 0 18px -4px var(--purple-soft);
+}
+
+.reset-btn:focus-visible,
+.card:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+/* ============ OVERLAY DE SUCESSO ============ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(6, 2, 14, 0.88);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.overlay--visivel {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay__inner {
+  text-align: center;
+  max-width: 420px;
+  padding: 0 20px;
+}
+
+.overlay__eyebrow {
+  font-family: var(--font-mono);
+  color: var(--cyan);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+.overlay__desc {
+  color: var(--text-dim);
+  margin-bottom: 22px;
+}
+
+.overlay .reset-btn {
+  width: auto;
+  padding: 10px 24px;
+}
+
+/* ============ ANIMAÇÕES ============ */
+
+@keyframes glitch-shift {
+  0% { transform: translate(-2px, 0); }
+  20% { transform: translate(2px, -1px); }
+  40% { transform: translate(-1px, 1px); }
+  60% { transform: translate(1px, 0); }
+  80% { transform: translate(-2px, 1px); }
+  100% { transform: translate(2px, 0); }
+}
+
+@keyframes pulse-glyph {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes flash-success {
+  0% { box-shadow: 0 0 0 0 rgba(51, 246, 232, 0.6); }
+  100% { box-shadow: 0 0 24px 4px rgba(51, 246, 232, 0); }
+}
+
+@keyframes shake-error {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============ RESPONSIVO ============ */
+
+@media (max-width: 880px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
