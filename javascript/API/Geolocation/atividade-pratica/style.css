@@ -1,9 +1,5 @@
-/* Importando fontes pixeladas do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 
-/* ===============================
-   TEMA GLOBAL E FUNDO (Fundo de Pedra/Caverna)
-=============================== */
 :root {
     --mc-gray: #c6c6c6;
     --mc-dark-gray: #555555;
@@ -17,7 +13,6 @@
 }
 
 body {
-    /* Textura quadriculada lembrando blocos de pedra do Minecraft */
     background-color: #7d7d7d;
     background-image: 
         linear-gradient(45deg, #707070 25%, transparent 25%, transparent 75%, #707070 75%, #707070),
@@ -32,13 +27,10 @@ body {
     margin: 0 auto;
     padding: 30px 20px;
     
-    /* Cursor de cruz, igual à mira do jogo! */
     cursor: crosshair; 
 }
 
-/* ===============================
-   TÍTULOS (Estilo texto flutuante do Minecraft)
-=============================== */
+
 h1, h2, h3, h4 {
     font-family: 'Press Start 2P', cursive;
     text-shadow: 4px 4px 0px var(--mc-shadow);
@@ -61,9 +53,7 @@ h2 {
     border-radius: 4px;
 }
 
-/* ===============================
-   CÂMERA E FOTOS (Estilo "Item Frame" de Madeira)
-=============================== */
+
 video, canvas {
     border: 8px solid var(--mc-wood);
     outline: 4px solid var(--mc-wood-dark);
@@ -78,9 +68,7 @@ video, canvas {
     transform: scaleX(-1);
 }
 
-/* ===============================
-   BOTÕES (Estilo UI clássica do Minecraft)
-=============================== */
+
 button {
     font-family: 'Press Start 2P', cursive;
     background-color: var(--mc-gray);
@@ -89,7 +77,6 @@ button {
     padding: 16px 24px;
     margin: 10px 5px;
     
-    /* Borda 3D */
     border: 4px solid;
     border-color: var(--mc-light) var(--mc-dark-gray) var(--mc-dark-gray) var(--mc-light);
     
@@ -98,22 +85,18 @@ button {
     transition: background-color 0.1s, color 0.1s;
 }
 
-/* Efeito ao passar o mouse: texto fica amarelo como no menu do jogo */
 button:hover {
-    background-color: #8fa0c9; /* Fica levemente azulado */
+    background-color: #8fa0c9; 
     color: var(--mc-yellow);
     text-shadow: 2px 2px 0px var(--mc-shadow);
 }
 
-/* Efeito ao clicar: borda inverte dando sensação de profundidade */
 button:active {
     border-color: var(--mc-dark-gray) var(--mc-light) var(--mc-light) var(--mc-dark-gray);
     background-color: var(--mc-gray);
 }
 
-/* ===============================
-   INPUTS E SELECTS (Estilo chat/comandos)
-=============================== */
+
 label {
     font-family: 'Press Start 2P', cursive;
     font-size: 0.8rem;
@@ -128,7 +111,6 @@ input[type="text"], select {
     color: var(--mc-light);
     padding: 10px 15px;
     
-    /* Borda 3D invertida (afundada) */
     border: 4px solid;
     border-color: var(--mc-dark-gray) var(--mc-light) var(--mc-light) var(--mc-dark-gray);
     
@@ -142,12 +124,9 @@ input[type="text"]:focus, select:focus {
     background-color: #222;
 }
 
-/* ===============================
-   PAINÉIS DE DADOS E REGISTRO 
-   (Estilo placa de madeira/livro)
-=============================== */
+
 #localizacao, #registro {
-    background-color: #F4E4BC; /* Cor de papel de livro do Minecraft */
+    background-color: #F4E4BC; 
     color: var(--mc-black);
     border: 6px solid #5B3A29;
     outline: 4px solid #2F1A0F;
@@ -162,7 +141,7 @@ input[type="text"]:focus, select:focus {
 #localizacao strong, #registro strong {
     font-family: 'Press Start 2P', cursive;
     font-size: 0.9rem;
-    color: #8b0000; /* Vermelho escuro para destaque */
+    color: #8b0000;
     line-height: 2.5;
 }
 
@@ -185,7 +164,6 @@ input[type="text"]:focus, select:focus {
     margin-bottom: 15px;
 }
 
-/* Foto final no registro */
 #registro img {
     border: 6px solid #333;
     max-width: 100%;
@@ -195,9 +173,6 @@ input[type="text"]:focus, select:focus {
     box-shadow: 4px 4px 8px rgba(0,0,0,0.3);
 }
 
-/* ===============================
-   BARRA DE ROLAGEM CUSTOMIZADA
-=============================== */
 ::-webkit-scrollbar {
     width: 16px;
 }
