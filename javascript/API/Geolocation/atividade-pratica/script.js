@@ -149,7 +149,7 @@ btnRegistrar.addEventListener("click", function () {
             <strong>Precisão:</strong> ${precisao.toFixed(2)} metros
         </p>
 
-        <p>🌎 Exploração registrada com sucesso!</p>
+        <p>Exploração registrada com sucesso!</p>
     `;
 
 });
