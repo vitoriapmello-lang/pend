@@ -15,3 +15,4 @@ navigator.mediaDevices.getUserMedia({ video: true })
     .catch(function(erro) {
         console.erro("erro a acessar o microfone.", erro);
     });
+    
